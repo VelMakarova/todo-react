@@ -1,0 +1,15 @@
+.btn {
+  flex: 0 0 auto;
+  padding: 5px 15px;
+  border: 1px solid;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn.add {
+  background-color: lightgreen;
+}
+
+.btn.delete {
+  background-color: indianred;
+}
