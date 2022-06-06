@@ -1,8 +1,7 @@
 .list {
   list-style: none;
   padding: 20px;
-}
-
-.list-empty {
-  text-align: center;
+  &-empty {
+    text-align: center;
+  }
 }

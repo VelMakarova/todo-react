@@ -4,12 +4,10 @@
   border: 1px solid;
   border-radius: 4px;
   cursor: pointer;
-}
-
-.btn.add {
-  background-color: lightgreen;
-}
-
-.btn.delete {
-  background-color: indianred;
+  &.add {
+    background-color: lightgreen;
+  }
+  &.delete {
+    background-color: indianred;
+  }
 }
