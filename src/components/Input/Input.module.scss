@@ -1,0 +1,11 @@
+.input {
+  flex: 1 1 auto;
+  border: none;
+  padding: 5px 15px;
+  &__left-rounded {
+    border-radius: 5px 0 0 5px;
+  }
+  &__right-rounded {
+    border-radius: 0 5px 5px 0;
+  }
+}

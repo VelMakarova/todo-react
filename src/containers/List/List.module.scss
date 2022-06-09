@@ -1,7 +1,9 @@
 .list {
+  background-color: #fff;
+  border-radius: 5px;
   list-style: none;
   padding: 20px;
-  &-empty {
+  &__empty {
     text-align: center;
   }
 }

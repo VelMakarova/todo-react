@@ -1,17 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './Checkbox.module.scss';
 
-function Checkbox({ isChecked, checkHandler, title }) {
+export function Checkbox({ isChecked, checkHandler, title }) {
   return (
-    <label htmlFor={title} className="checkbox">
+    <label htmlFor={title} className={styles.checkbox}>
       <input
         type="checkbox"
         checked={isChecked}
         id={title}
         name={title}
+        placeholder={title}
         onChange={() => checkHandler(title)}
       />
-      <i className="checkbox-tick" />
+      <i className={styles.checkbox__tick} />
     </label>
   );
 }
@@ -19,11 +21,9 @@ function Checkbox({ isChecked, checkHandler, title }) {
 Checkbox.propTypes = {
   isChecked: PropTypes.bool,
   checkHandler: PropTypes.func.isRequired,
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired
 };
 
 Checkbox.defaultProps = {
-  isChecked: false,
+  isChecked: false
 };
-
-export default Checkbox;

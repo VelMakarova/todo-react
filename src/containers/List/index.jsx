@@ -1,20 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Task from './Task/Task';
+import { Task } from './Task';
+import styles from './List.module.scss';
 
-function List({ tasks, updateTasks }) {
+export function List({ tasks, updateTasks }) {
   const removeTaskHandler = (taskName) => {
     const updatedTasks = [...tasks];
     const index = updatedTasks.findIndex((i) => i.title === taskName);
     updatedTasks.splice(index, 1);
     updateTasks([...updatedTasks]);
   };
+
   const checkHandler = (taskName) => {
     const updatedTasks = [...tasks];
     const index = updatedTasks.findIndex((i) => i.title === taskName);
     updatedTasks[index].isDone = !updatedTasks[index].isDone;
     updateTasks([...updatedTasks]);
   };
+
+  const updateTitle = (taskName, updatedName) => {
+    const updatedTasks = [...tasks];
+    const index = updatedTasks.findIndex((i) => i.title === taskName);
+    updatedTasks[index].title = updatedName;
+    updateTasks([...updatedTasks]);
+  };
+
   const renderTasks = () => {
     if (tasks.length) {
       return tasks.map((item) => (
@@ -24,21 +34,21 @@ function List({ tasks, updateTasks }) {
           isDone={item.isDone}
           checkHandler={checkHandler}
           removeTaskHandler={removeTaskHandler}
+          updateTitle={updateTitle}
         />
       ));
     }
-    return <li className="list-empty">List of Tasks is empty</li>;
+    return <li className={styles.list__empty}>List of Tasks is empty</li>;
   };
-  return <ul className="list">{renderTasks()}</ul>;
+  return <ul className={styles.list}>{renderTasks()}</ul>;
 }
 
 List.propTypes = {
   tasks: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
-      isDone: PropTypes.bool,
+      isDone: PropTypes.bool
     })
   ).isRequired,
-  updateTasks: PropTypes.func.isRequired,
+  updateTasks: PropTypes.func.isRequired
 };
-export default List;

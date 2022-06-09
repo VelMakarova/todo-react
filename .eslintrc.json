@@ -23,7 +23,9 @@
       "no-console": "warn",
       "no-debugger": "warn",
       "quotes": ["error", "single"],
-      "comma-dangle": "warn",
-      "react/button-has-type": "off"
+      "comma-dangle": ["warn", "never"],
+      "import/prefer-default-export": "off",
+      "react/button-has-type": "off",
+      "object-curly-newline": "off"
     }
 }

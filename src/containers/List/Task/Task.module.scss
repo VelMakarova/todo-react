@@ -1,0 +1,23 @@
+.task {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  border-radius: 4px;
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
+}
+
+.task__title {
+  flex: 1 1 auto;
+  border: none;
+  outline: none;
+  padding: 0 10px;
+  color: #000;
+  cursor: pointer;
+  &:disabled {
+    background-color: #fff;
+    color: #000;
+    cursor: default;
+  }
+}

@@ -1,20 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './Input.module.scss';
 
-function Input({ value, changeValue }) {
+export function Input({ value, name, changeHandler, extraClass }) {
   return (
     <input
-      className="input"
+      className={`${styles.input} ${extraClass && styles[extraClass]}`}
       type="text"
       value={value}
-      onChange={(e) => changeValue(e.target.value)}
+      name={name}
+      onChange={(e) => changeHandler(e)}
     />
   );
 }
 
 Input.propTypes = {
   value: PropTypes.string.isRequired,
-  changeValue: PropTypes.func.isRequired,
+  changeHandler: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
+  extraClass: PropTypes.string
 };
-
-export default Input;
+Input.defaultProps = {
+  extraClass: ''
+};
