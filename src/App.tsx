@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { List, Form } from './containers';
 import styles from './App.module.scss';
 
-function App() {
-  const [tasks, updateTasks] = useState([{ title: 'task sofas', isDone: false }]);
-
+// eslint-disable-next-line no-undef
+function App(): JSX.Element {
   return (
     <div className={styles.app}>
       <header className={styles.header}>
@@ -14,8 +13,8 @@ function App() {
       </header>
       <main className={styles.main}>
         <div className={styles.main__container}>
-          <Form tasksList={tasks} updateTasks={updateTasks} />
-          <List tasks={tasks} updateTasks={updateTasks} />
+          <Form />
+          <List />
         </div>
       </main>
     </div>

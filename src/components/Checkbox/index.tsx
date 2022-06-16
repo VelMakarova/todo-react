@@ -1,8 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styles from './Checkbox.module.scss';
 
-export function Checkbox({ isChecked, checkHandler, title }) {
+interface CheckboxTypes {
+  isChecked: boolean,
+  checkHandler (args: string): void,
+  title: string
+}
+export function Checkbox({ isChecked, checkHandler, title }: CheckboxTypes) {
   return (
     <label htmlFor={title} className={styles.checkbox}>
       <input
@@ -17,13 +21,3 @@ export function Checkbox({ isChecked, checkHandler, title }) {
     </label>
   );
 }
-
-Checkbox.propTypes = {
-  isChecked: PropTypes.bool,
-  checkHandler: PropTypes.func.isRequired,
-  title: PropTypes.string.isRequired
-};
-
-Checkbox.defaultProps = {
-  isChecked: false
-};

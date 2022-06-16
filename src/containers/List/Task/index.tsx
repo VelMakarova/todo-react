@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import { Checkbox, Button } from '../../../components';
+import { TaskType } from '../../../types';
 import styles from './Task.module.scss';
 
-export function Task({ title, isDone, checkHandler, removeTaskHandler, updateTitle }) {
-  const [inputValue, setValue] = useState({ editInput: title });
-  const [editModeOn, toggleEditMode] = useState(false);
+interface FormState {
+  editInput: string
+}
 
-  const inputHandler = (e) => {
-    const {
-      target: { name, value }
-    } = e;
+export function Task({ title, isDone, checkHandler, removeTaskHandler, updateTitle } : TaskType) {
+  const [inputValue, setValue] = useState<FormState>({ editInput: title });
+  const [editModeOn, toggleEditMode] = useState<boolean>(false);
+
+  const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { target } = e;
+    const { name, value } = target;
     setValue({ ...inputValue, [name]: value });
   };
 
@@ -50,15 +53,3 @@ export function Task({ title, isDone, checkHandler, removeTaskHandler, updateTit
     </li>
   );
 }
-
-Task.defaultProps = {
-  isDone: false
-};
-
-Task.propTypes = {
-  title: PropTypes.string.isRequired,
-  isDone: PropTypes.bool,
-  checkHandler: PropTypes.func.isRequired,
-  removeTaskHandler: PropTypes.func.isRequired,
-  updateTitle: PropTypes.func.isRequired
-};
